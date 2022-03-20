@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.UUID;
+
 @Controller
 public class MainHandler {
 
@@ -21,9 +23,11 @@ public class MainHandler {
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     @ResponseBody
-    public void signUp(@RequestParam String username, @RequestParam String password){
+    public UUID signUp(@RequestParam String username, @RequestParam String password){
+        System.out.println(username + " : " + password);
         User user = new User(username, password);
-        return 
+        System.out.println(user.getUuid());
+        return user.getUuid();
     }
 
     @GetMapping("/{username}")
