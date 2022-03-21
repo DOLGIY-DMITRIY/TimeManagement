@@ -26,16 +26,17 @@ public class MainHandler {
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     @ResponseBody
-    public UUID signUp(@RequestParam String username, @RequestParam String password) throws SQLException, IOException {
+    public UUID signUp(@RequestParam String username, @RequestParam String password) throws SQLException, IOException, ClassNotFoundException {
+        System.out.println(username + " : " + password);
         DataBase db = new DataBase();
         db.isExist(username);
         return null;
     }
 
-    @GetMapping("/{username}")
-    public void username(@PathVariable String username){
-        System.out.println(username);
-    }
+//    @GetMapping("/{username}")
+//    public void username(@PathVariable String username){
+//        System.out.println(username);
+//    }
 
     @GetMapping("/redirect")
     public ModelAndView redirect(){

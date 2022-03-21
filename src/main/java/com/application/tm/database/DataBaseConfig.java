@@ -14,15 +14,18 @@ public class DataBaseConfig {
     private final String port = "3306";
     private final String user = "root";
     private final String pass = "sqlpassword";
-    private final String name = "timemanegement";
+    private final String name = "timemanagement";
 
 
     protected final Connection connection;
 
     // "jdbc:mysql://localhost:3306/javabase" - Example of URL
 
-    public DataBaseConfig() throws IOException, SQLException {
+    public DataBaseConfig() throws IOException, SQLException, ClassNotFoundException {
         String URL = "jdbc:mysql://" + host + ":" + port + "/" + name;
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+
         connection = DriverManager.getConnection(URL, user, pass);
     }
 

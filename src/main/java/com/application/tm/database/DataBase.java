@@ -9,7 +9,7 @@ public class DataBase extends DataBaseConfig {
     private final String INSERT_USER = "INSERT INTO user (UUID, username, password) VALUES (?, ?, ?)";
     private final String CHECK_USERNAME = "SELECT username FROM user WHERE username=?";
 
-    public DataBase() throws IOException, SQLException {
+    public DataBase() throws IOException, SQLException, ClassNotFoundException {
         super();
     }
 
