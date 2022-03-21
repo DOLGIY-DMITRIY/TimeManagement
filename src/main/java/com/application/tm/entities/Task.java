@@ -1,30 +1,35 @@
-package com.application.tm;
+package com.application.tm.entities;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Task {
 
-    private String description;
-    private Date startsAt;
-    private Date endAt;
-    private boolean isDone;
+    private final String description;
+    private final LocalDateTime startsAt;
+    private final LocalDateTime endAt;
+    private final boolean isDone;
+    private final String date;
 
     private Task(Builder builder){
         description = builder.description;
         startsAt = builder.startsAt;
         endAt = builder.endAt;
         isDone = false;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        date = dtf.format(LocalDateTime.now());
     }
 
     public String getDescription() {
         return description;
     }
 
-    public Date getStartsAt() {
+    public LocalDateTime getStartsAt() {
         return startsAt;
     }
 
-    public Date getEndAt() {
+    public LocalDateTime getEndAt() {
         return endAt;
     }
 
@@ -32,10 +37,14 @@ public class Task {
         return isDone;
     }
 
+    public String getDate() {
+        return date;
+    }
+
     public static class Builder{
         private String description;
-        private Date startsAt;
-        private Date endAt;
+        private LocalDateTime startsAt;
+        private LocalDateTime endAt;
         private boolean isDone;
 
         public Builder setDescription(String description) {
@@ -43,12 +52,12 @@ public class Task {
             return this;
         }
 
-        public Builder setStartsAt(Date startsAt) {
+        public Builder setStartsAt(LocalDateTime startsAt) {
             this.startsAt = startsAt;
             return this;
         }
 
-        public Builder setEndAt(Date endAt) {
+        public Builder setEndAt(LocalDateTime endAt) {
             this.endAt = endAt;
             return this;
         }

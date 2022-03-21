@@ -1,4 +1,4 @@
-package com.application.tm;
+package com.application.tm.entities;
 
 import java.util.UUID;
 
