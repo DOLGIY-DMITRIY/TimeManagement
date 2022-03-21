@@ -2,12 +2,13 @@ package com.application.tm.database;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DataBase extends DataBaseConfig {
 
     private final String INSERT_USER = "INSERT INTO user (UUID, username, password) VALUES (?, ?, ?)";
-    private final String CHECK_USERNAME = "SELECT username FROM user WHERE username=?";
+    private final String CHECK_USERNAME = "SELECT * FROM user WHERE username=?";
 
     public DataBase() throws IOException, SQLException, ClassNotFoundException {
         super();
@@ -19,8 +20,11 @@ public class DataBase extends DataBaseConfig {
 
             statement.setString(1, username);
 
-            int result = statement.executeUpdate();
-            System.out.println(result);
+            ResultSet result = statement.executeQuery();
+            while(result.next()){
+                String res = result.getString("username");
+                System.out.println(res);
+            }
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
