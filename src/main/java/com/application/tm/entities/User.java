@@ -22,7 +22,7 @@ public class User {
         return password;
     }
 
-    public UUID getUuid() {
+    public UUID getUUID() {
         return uuid;
     }
 }

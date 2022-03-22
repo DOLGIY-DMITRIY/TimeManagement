@@ -21,9 +21,8 @@ public class DataBase extends DataBaseConfig {
             statement.setString(1, username);
 
             ResultSet result = statement.executeQuery();
-            while(result.next()){
-                String res = result.getString("username");
-                System.out.println(res);
+            if (result.next()) {
+                return true;
             }
         } catch (SQLException exception) {
             exception.printStackTrace();

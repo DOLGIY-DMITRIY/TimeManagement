@@ -7,12 +7,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.UUID;
 
 @Controller
 public class MainHandler {
+
+    private final DataBase db = new DataBase();
+
+    public MainHandler() throws SQLException, IOException, ClassNotFoundException {
+    }
 
     @GetMapping("/")
     public String mainPage(Model model){
@@ -28,8 +35,10 @@ public class MainHandler {
     @ResponseBody
     public UUID signUp(@RequestParam String username, @RequestParam String password) throws SQLException, IOException, ClassNotFoundException {
         System.out.println(username + " : " + password);
-        DataBase db = new DataBase();
-        db.isExist(username);
+        if (!db.isExist(username)){
+            User user = new User(username, password);
+            return user.getUUID();
+        }
         return null;
     }
 
