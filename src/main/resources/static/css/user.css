@@ -13,10 +13,13 @@ body{
     margin: 0 auto;
     width: 100vw;
     max-width: 1920px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .add{
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,8 +45,33 @@ body{
     color: #00d4a9;
     background-color: #a6ffed;
     transition: .4s;
+    cursor: pointer;
 }
 
 .add i:hover{
     transform: scale(1.2);
+}
+
+.days{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 50px;
+    width: 1000px;
+    flex-wrap: wrap;
+}
+
+.day{
+    height: 100px;
+    width: 100px;
+    border-radius: 25px;
+    background-color: #a6ffed;
+    border: 2px solid #00d4a9;
+    color: #333;
+    margin: 10px;
+}
+
+.days p{
+    margin-left: 10px;
+    margin-top: 10px;
 }
