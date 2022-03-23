@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100&display=swap');
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+body{
+    margin: 0 auto;
+    width: 100vw;
+    max-width: 1920px;
+}
+
+.add{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.add h2{
+    margin-top: 25px;
+    color: #00d4a9;
+    font-size: 35px;
+}
+
+.add i{
+    margin-top: 25px;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    border: 2px solid #00d4a9;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00d4a9;
+    background-color: #a6ffed;
+    transition: .4s;
+}
+
+.add i:hover{
+    transform: scale(1.2);
+}

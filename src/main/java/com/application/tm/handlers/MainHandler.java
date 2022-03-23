@@ -7,10 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Optional;
 import java.util.UUID;
 
 @Controller
@@ -18,8 +16,7 @@ public class MainHandler {
 
     private final DataBase db = new DataBase();
 
-    public MainHandler() throws SQLException, IOException, ClassNotFoundException {
-    }
+    public MainHandler() throws SQLException, IOException, ClassNotFoundException { }
 
     @GetMapping("/")
     public String mainPage(Model model){
@@ -43,10 +40,15 @@ public class MainHandler {
         return null;
     }
 
-//    @GetMapping("/{username}")
-//    public void username(@PathVariable String username){
-//        System.out.println(username);
-//    }
+    @GetMapping("/{username}")
+    public String username(@PathVariable String username, Model model){
+        return "user";
+    }
+
+    @RequestMapping(path = "/user", method = RequestMethod.GET)
+    public ModelAndView returnUserPage(@RequestParam String uid){
+        return new ModelAndView("redirect:" + "/" + uid);
+    }
 
     @GetMapping("/redirect")
     public ModelAndView redirect(){

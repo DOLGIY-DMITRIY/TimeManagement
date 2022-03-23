@@ -19,7 +19,7 @@ create.addEventListener('click', function(){
                     warning.innerHTML = "Sorry, current username is already exist"
                 } else{
                     window.localStorage.setItem('UID', res)
-                    redirectToUserPage()
+                    redirectToUserPage(username)
                 }
             }
         }
@@ -27,8 +27,8 @@ create.addEventListener('click', function(){
     }
 })
 
-function redirectToUserPage(){
-    window.location.href = "user"
+function redirectToUserPage(username){
+    window.location.href = username
     // var xhr = new XMLHttpRequest();
     // xhr.open("POST", '/redirect-to-user-page', true);
     // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
