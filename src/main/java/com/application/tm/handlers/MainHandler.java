@@ -37,6 +37,7 @@ public class MainHandler {
         System.out.println(username + " : " + password);
         if (!db.isExist(username)){
             User user = new User(username, password);
+            db.addUser(user);
             return user.getUUID();
         }
         return null;
